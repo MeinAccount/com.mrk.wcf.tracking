@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.admin.user.tracking"><![CDATA[Tracking]]></item>
+		<item name="wcf.acp.group.option.admin.user.isNotTracked"><![CDATA[Diesen Benutzer vom Tracking ausschließen]]></item>
+		<item name="wcf.acp.group.option.admin.user.canManageTrackingProvider"><![CDATA[Kann Tracking-Anbieter verwalten]]></item>
+	</category>
+	
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.user.tracking"><![CDATA[Tracking]]></item>
+		<item name="wcf.acp.menu.link.user.tracking.provider.add"><![CDATA[Tracking-Anbieter hinzufügen]]></item>
+		<item name="wcf.acp.menu.link.user.tracking.provider.list"><![CDATA[Tracking-Anbieter auflisten]]></item>
+	</category>
+	
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.module_tracking"><![CDATA[Tracking]]></item>
+	</category>
+	
+	<category name="wcf.acp.tracking">
+		<item name="wcf.acp.tracking.provider.add"><![CDATA[Tracking-Anbieter hinzufügen]]></item>
+		<item name="wcf.acp.tracking.provider.com.mrk.wcf.tracking.provider.piwik"><![CDATA[Piwik]]></item>
+		<item name="wcf.acp.tracking.provider.className"><![CDATA[PHP-Klassenname]]></item>
+		<item name="wcf.acp.tracking.provider.className.error.invalid"><![CDATA[Diese Klasse muss das Interface wcf\\\system\\\tracking\\\provider\\\ITrackingProvider implementieren.]]></item>
+		<item name="wcf.acp.tracking.provider.className.error.notFound"><![CDATA[Diese Klasse wurde nicht gefunden.]]></item>
+		<item name="wcf.acp.tracking.provider.delete.sure"><![CDATA[Wollen Sie den Tracking-Anbieter {$trackingProvider->providerName} wirklich löschen?]]></item>
+		<item name="wcf.acp.tracking.provider.edit"><![CDATA[Tracking-Anbieter bearbeiten]]></item>
+		<item name="wcf.acp.tracking.provider.list"><![CDATA[Tracking-Anbieter auflisten]]></item>
+		<item name="wcf.acp.tracking.provider.notSet"><![CDATA[Nicht gesetzt]]></item>
+		<item name="wcf.acp.tracking.provider.providerName"><![CDATA[Tracking-Anbieter]]></item>
+		<item name="wcf.acp.tracking.provider.providerName.error.notUnique"><![CDATA[Dieser Tracking-Anbieter existiert bereits.]]></item>
+		<item name="wcf.acp.tracking.provider.start.preset"><![CDATA[Voreingestellte Tracking-Anbieter]]></item>
+		<item name="wcf.acp.tracking.provider.start.custom"><![CDATA[Eigener Tracking-Anbieter]]></item>
+		<item name="wcf.acp.tracking.provider.trackingID"><![CDATA[Tracking-ID]]></item>
+		<item name="wcf.acp.tracking.provider.trackingID.description"><![CDATA[Für das erfolgreiche Tracking wird die Tracking-ID dieser Webseite benötigt. Diese erfahren Sie bei Ihrem Tracking-Anbieter.]]></item>
+		<item name="wcf.acp.tracking.provider.trackingData"><![CDATA[Tracking-Anbieter]]></item>
+		<item name="wcf.acp.tracking.provider.trackingURL"><![CDATA[Tracking-URL]]></item>
+		<item name="wcf.acp.tracking.provider.trackingURL.description"><![CDATA[Bei einer eigenen Installation einer Webanalyseplattform geben Sie hier die URL an. Die Angabe erfolgt dabei ohne Protokoll, z.B. &raquo;example.com/piwik&laquo; oder &raquo;piwik.example.com&laquo;.]]></item>
+	</category>
+</language>
