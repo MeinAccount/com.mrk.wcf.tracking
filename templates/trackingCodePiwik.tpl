@@ -11,3 +11,4 @@
 		g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
 	})();
 </script>
+<noscript><img src="http://localhost/piwik/piwik.php?idsite={$trackingID}&amp;rec=1" style="border:0" alt="" /></noscript>
