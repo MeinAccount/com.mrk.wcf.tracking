@@ -7,12 +7,13 @@ Functions
 ---------
 
 * Management of tracking providers
+* Automatic compression of tracking code
 * @todo Page for opt-out of tracking
 * @todo Goal / Conversions tracking API
 
 Why don't use the footer-code option?
 ------------------------------------
-This packages contains an easy to use API for tracking goals / conversions. For example tracking whether an user has registered is only one click away. Additionally the management and updating of multiple tracking providers is a lot easier.
+This packages contains an easy to use API for tracking goals / conversions. For example tracking whether an user has registered is only one click away. Additionally the management of multiple tracking providers is a lot easier.
 
 License
 -------

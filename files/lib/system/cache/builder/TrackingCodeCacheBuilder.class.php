@@ -25,6 +25,16 @@ class TrackingCodeCacheBuilder extends AbstractCacheBuilder {
 			$trackingCode .= $provider->getTrackingCode($trackingProvider);
 		}
 		
-		return array('code' => $trackingCode);
+		return array('code' => $this->minifyCode($trackingCode));
+	}
+
+	/**
+	 * Minifies html code
+	 * 
+	 * @param string $code
+	 * @return string
+	 */
+	protected function minifyCode($code) {
+		return preg_replace('/\s+/', ' ', str_replace(array('//<![CDATA[', '//]]>'), '', $code));
 	}
 }
