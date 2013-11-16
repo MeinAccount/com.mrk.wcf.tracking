@@ -24,19 +24,19 @@ class TrackingProviderAction extends AbstractDatabaseObjectAction implements ITo
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
 	protected $permissionsCreate = array('admin.user.canManageTrackingProvider');
-
+	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
 	protected $permissionsDelete = array('admin.user.canManageTrackingProvider');
-
+	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
 	protected $permissionsUpdate = array('admin.user.canManageTrackingProvider');
 	
 	/**
-	 * Toggles the "isDisabled" status of the relevant objects.
+	 * @see	\wcf\data\IToggleAction::toggle()
 	 */
 	public function toggle() {
 		foreach ($this->objects as $trackingProvider) {
@@ -47,12 +47,12 @@ class TrackingProviderAction extends AbstractDatabaseObjectAction implements ITo
 	}
 	
 	/**
-	 * Validates the "toggle" action.
+	 * @see	\wcf\data\IToggleAction::validateToggle()
 	 */
 	public function validateToggle() {
 		parent::validateUpdate();
 	}
-
+	
 	/**
 	 * Checks if a class name is a valid tracking provider 
 	 */
@@ -67,7 +67,7 @@ class TrackingProviderAction extends AbstractDatabaseObjectAction implements ITo
 		
 		return 'valid';
 	}
-
+	
 	/**
 	 * Validates the "checkClassName" action.
 	 */

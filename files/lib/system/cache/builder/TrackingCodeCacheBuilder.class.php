@@ -11,7 +11,7 @@ use wcf\system\tracking\TrackingHandler;
  */
 class TrackingCodeCacheBuilder extends AbstractCacheBuilder {
 	/**
-	 * @see \wcf\system\cache\builder\AbstractCacheBuilder::rebuild()
+	 * @see	\wcf\system\cache\builder\AbstractCacheBuilder::rebuild()
 	 */
 	protected function rebuild(array $parameters) {
 		$tracking = '';
@@ -24,7 +24,7 @@ class TrackingCodeCacheBuilder extends AbstractCacheBuilder {
 		
 		return array('tracking' => $this->minifyCode($tracking), 'optOut' => $this->minifyCode($optOut));
 	}
-
+	
 	/**
 	 * Minifies html code
 	 * 

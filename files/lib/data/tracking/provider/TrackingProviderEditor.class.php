@@ -19,7 +19,7 @@ class TrackingProviderEditor extends DatabaseObjectEditor implements IEditableCa
 	protected static $baseClass = 'wcf\data\tracking\provider\TrackingProvider';
 	
 	/**
-	 * Resets the cache of this object type.
+	 * @see	\wcf\data\IEditableCachedObject::resetCache()
 	 */
 	public static function resetCache() {
 		TrackingCodeCacheBuilder::getInstance()->reset();

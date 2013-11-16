@@ -32,7 +32,7 @@ class TrackingProviderEditForm extends TrackingProviderAddForm {
 	 */
 	public function readParameters() {
 		AbstractForm::readParameters();
-
+		
 		if (isset($_REQUEST['id'])) $this->trackingProviderID = intval($_REQUEST['id']);
 		$this->trackingProvider = new TrackingProvider($this->trackingProviderID);
 		if (!$this->trackingProvider->trackingProviderID) {

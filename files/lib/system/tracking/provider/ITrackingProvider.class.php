@@ -5,9 +5,10 @@ use wcf\data\tracking\provider\TrackingProvider;
 /**
  * Interface for tracking providers
  * 
- * @author           Magnus Kühn
- * @copyright        2013 Magnus Kühn
- * @package          com.mrk.wcf.tracking
+ * @author	Magnus Kühn
+ * @copyright	2013 Magnus Kühn
+ * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl-2.1.txt>
+ * @package	com.mrk.wcf.tracking
  */
 interface ITrackingProvider {
 	/**
@@ -17,7 +18,7 @@ interface ITrackingProvider {
 	 * @return	string
 	 */
 	public function getTrackingCode(TrackingProvider $trackingProvider);
-
+	
 	/**
 	 * Returns the opt out code
 	 *
@@ -32,7 +33,7 @@ interface ITrackingProvider {
 	 * @return	boolean
 	 */
 	public function requiresURL();
-
+	
 	/**
 	 * Checks whether the tracking provider requires an tracking id
 	 *

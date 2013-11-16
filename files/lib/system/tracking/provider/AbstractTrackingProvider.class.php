@@ -13,7 +13,7 @@ use wcf\system\WCF;
 class AbstractTrackingProvider implements ITrackingProvider {
 	/**
 	 * template name
-	 * @var string
+	 * @var	string
 	 */
 	protected $templateName = null;
 	
