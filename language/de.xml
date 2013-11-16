@@ -18,6 +18,10 @@
 		<item name="wcf.acp.option.module_tracking_opt_out.description"><![CDATA[Erlaubt Ihren Benutzer optional nicht mehr getrackt zu werden.]]></item>
 	</category>
 	
+	<category name="wcf.acp.search">
+		<item name="wcf.acp.search.provider.com.mrk.wcf.tracking.provider"><![CDATA[Tracking-Anbieter]]></item>
+	</category>
+	
 	<category name="wcf.acp.tracking">
 		<item name="wcf.acp.tracking.provider.add"><![CDATA[Tracking-Anbieter hinzufügen]]></item>
 		<item name="wcf.acp.tracking.provider.com.mrk.wcf.tracking.provider.piwik"><![CDATA[Piwik]]></item>
