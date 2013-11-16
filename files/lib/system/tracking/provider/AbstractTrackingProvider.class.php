@@ -5,45 +5,52 @@ use wcf\system\WCF;
 
 /**
  * Abstract implementation of tracking providers
- * 
+ *
  * @author           Magnus Kühn
  * @copyright        2013 Magnus Kühn
  * @package          com.mrk.wcf.tracking
  */
 class AbstractTrackingProvider implements ITrackingProvider {
 	/**
-	 * name of the template for the tracking code
+	 * template name
 	 * @var string
 	 */
 	protected $templateName = null;
 	
 	/**
-	 * Returns the tracking code
-	 *
-	 * @param        TrackingProvider $trackingProvider
-	 * @return        mixed
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::getTrackingCode()
 	 */
 	public function getTrackingCode(TrackingProvider $trackingProvider) {
-		return WCF::getTPL()->fetch($this->templateName, 'wcf', array(
-			'trackingID' => $trackingProvider->trackingID,
-			'trackingURL' => $trackingProvider->trackingURL,
-			'trackingProvider' => $trackingProvider
-		));
+		return $this->fetchTemplate('trackingCode', $trackingProvider);
 	}
-
+	
 	/**
-	 * Checks whether the tracking provider requires an URL
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::getTrackingCode()
+	 */
+	public function getOptOutCode(TrackingProvider $trackingProvider) {
+		return $this->fetchTemplate('trackingOptOut', $trackingProvider);
+	}
+	
+	/**
+	 * Fetches a template
 	 *
-	 * @return boolean
+	 * @param	string						$template
+	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
+	 * @return	string
+	 */
+	protected function fetchTemplate($template, TrackingProvider $trackingProvider) {
+		return WCF::getTPL()->fetch($template . ucfirst($this->templateName), 'wcf', array('trackingID' => $trackingProvider->trackingID, 'trackingURL' => $trackingProvider->trackingURL, 'trackingProvider' => $trackingProvider));
+	}
+	
+	/**
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresURL()
 	 */
 	public function requiresURL() {
 		return true;
 	}
-
+	
 	/**
-	 * Checks whether the tracking provider requires an tracking id
-	 *
-	 * @return boolean
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresID()
 	 */
 	public function requiresID() {
 		return true;

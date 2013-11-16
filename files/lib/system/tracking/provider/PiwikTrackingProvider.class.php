@@ -10,7 +10,7 @@ namespace wcf\system\tracking\provider;
  */
 class PiwikTrackingProvider extends AbstractTrackingProvider {
 	/**
-	 * @see \wcf\system\tracking\provider\AbstractTrackingProvider::$templateName
+	 * @see	\wcf\system\tracking\provider\AbstractTrackingProvider::$templateName
 	 */
-	protected $templateName = 'trackingCodePiwik';
+	protected $templateName = 'piwik';
 }

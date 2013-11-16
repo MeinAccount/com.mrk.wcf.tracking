@@ -13,10 +13,18 @@ interface ITrackingProvider {
 	/**
 	 * Returns the tracking code
 	 * 
-	 * @param	TrackingProvider	$trackingProvider
-	 * @return	mixed
+	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
+	 * @return	string
 	 */
 	public function getTrackingCode(TrackingProvider $trackingProvider);
+
+	/**
+	 * Returns the opt out code
+	 *
+	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
+	 * @return	string
+	 */
+	public function getOptOutCode(TrackingProvider $trackingProvider);
 	
 	/**
 	 * Checks whether the tracking provider requires an URL 

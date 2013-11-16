@@ -31,7 +31,7 @@ class TrackingProvider extends DatabaseObject implements IRouteController {
 	public function getTitle() {
 		return $this->providerName;
 	}
-
+	
 	/**
 	 * Returns the tracking url
 	 * 
@@ -39,5 +39,15 @@ class TrackingProvider extends DatabaseObject implements IRouteController {
 	 */
 	public function getTrackingURL() {
 		return rawurlencode(RouteHandler::getInstance()->getProtocol().$this->trackingURL);
+	}
+
+	/**
+	 * Creates an instance of the tracking provider
+	 * 
+	 * @return \wcf\system\tracking\provider\ITrackingProvider
+	 */
+	public function getProvider() {
+		$className = $this->className;
+		return new $className();
 	}
 }
