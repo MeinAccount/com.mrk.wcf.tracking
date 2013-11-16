@@ -3,8 +3,10 @@ namespace wcf\acp\form;
 use wcf\data\tracking\provider\TrackingProviderAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
+use wcf\system\exception\UserInputException;
 use wcf\system\tracking\TrackingHandler;
 use wcf\system\WCF;
+use wcf\util\FileUtil;
 use wcf\util\StringUtil;
 
 /**
@@ -61,17 +63,17 @@ class TrackingProviderAddForm extends AbstractForm {
 	 */
 	public function readParameters() {
 		parent::readParameters();
-
+		
 		if (empty($_REQUEST['className'])) {
 			throw new IllegalLinkException();
 		}
-
+		
 		// check class name
 		$this->className = StringUtil::trim($_REQUEST['className']);
 		if (!TrackingHandler::getInstance()->isValidProvider($this->className)) {
 			throw new IllegalLinkException();
 		}
-
+		
 		// create provider instance
 		$className = $this->className;
 		$this->provider = new $className();

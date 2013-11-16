@@ -65,8 +65,8 @@
 						</td>
 						<td class="columnID">{@$trackingProvider->trackingProviderID}</td>
 						<td class="columnTitle">{$trackingProvider->providerName}</td>
-						<td class="columnURL">{if $trackingProvider->trackingURL}<a href="{@$__wcf->getPath()}acp/dereferrer.php?url={$trackingProvider->getTrackingURL()}" target="_blank">{$trackingProvider->trackingURL}</a>{else}<span class="badge red">{lang}wcf.acp.tracking.provider.notSet{/lang}</span>{/if}</td>
-						<td class="columnStatus">{if $trackingProvider->trackingID}<span class="badge green">{@$trackingProvider->trackingID}</span>{else}<span class="badge red">{lang}wcf.acp.tracking.provider.notSet{/lang}</span>{/if}</td>
+						<td class="columnURL">{if $trackingProvider->trackingURL}<a href="{@$__wcf->getPath()}acp/dereferrer.php?url={$trackingProvider->getTrackingURL()}" target="_blank">{$trackingProvider->trackingURL}</a>{else}<span class="badge red">{lang}wcf.acp.tracking.provider.notRequired{/lang}</span>{/if}</td>
+						<td class="columnStatus">{if $trackingProvider->trackingID}<span class="badge green">{@$trackingProvider->trackingID}</span>{else}<span class="badge red">{lang}wcf.acp.tracking.provider.notRequired{/lang}</span>{/if}</td>
 						
 						{event name='columns'}
 					</tr>

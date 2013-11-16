@@ -13,8 +13,6 @@
 	<h1>{lang}wcf.tracking.opt_out{/lang}</h1>
 </header>
 
-{include file='userNotice'}
-
 {@$__wcf->getTrackingHandler()->getOptOutCode()}
 
 {include file='footer'}

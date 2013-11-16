@@ -52,7 +52,7 @@
 					<dl{if $errorField == 'trackingURL'} class="formError"{/if}>
 						<dt><label for="trackingURL">{lang}wcf.acp.tracking.provider.trackingURL{/lang}</label></dt>
 						<dd>
-							<input type="text" id="trackingURL" name="trackingURL" value="{$trackingURL}" class="long" />
+							<input type="text" id="trackingURL" name="trackingURL" value="{$trackingURL}" required="required" class="long" />
 							{if $errorField == 'trackingURL'}<small class="innerError">{lang}wcf.global.form.error.empty{/lang}</small>{/if}
 							<small>{lang}wcf.acp.tracking.provider.trackingURL.description{/lang}</small>
 						</dd>
@@ -62,7 +62,7 @@
 					<dl{if $errorField == 'trackingID'} class="formError"{/if}>
 						<dt><label for="trackingID">{lang}wcf.acp.tracking.provider.trackingID{/lang}</label></dt>
 						<dd>
-							<input type="text" id="trackingID" name="trackingID" value="{$trackingID}" class="long" />
+							<input type="text" id="trackingID" name="trackingID" value="{$trackingID}" required="required" class="long" />
 							{if $errorField == 'trackingID'}<small class="innerError">{lang}wcf.global.form.error.empty{/lang}</small>{/if}
 							<small>{lang}wcf.acp.tracking.provider.trackingID.description{/lang}</small>
 						</dd>

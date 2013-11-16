@@ -20,7 +20,7 @@ class TrackingPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededModules
 	 */
-	public $neededModules = array('MODULE_TRACKING');
+	public $neededModules = array('MODULE_TRACKING_OPT_OUT');
 
 	/**
 	 * @see wcf\page\IPage::readData()

@@ -21,7 +21,7 @@ class TrackingHandler extends SingletonFactory {
 	 * @return	string
 	 */
 	public function getTrackingCode() {
-		if (WCF::getSession()->getPermission('admin.user.isNotTracked')) {
+		if (!MODULE_TRACKING || WCF::getSession()->getPermission('admin.user.isNotTracked')) {
 			return '';
 		}
 		
@@ -34,6 +34,10 @@ class TrackingHandler extends SingletonFactory {
 	 * @return	string
 	 */
 	public function getOptOutCode() {
+		if (!MODULE_TRACKING || !MODULE_TRACKING_OPT_OUT) {
+			return '';
+		}
+		
 		return TrackingCodeCacheBuilder::getInstance()->getData(array(), 'optOut');
 	}
 	

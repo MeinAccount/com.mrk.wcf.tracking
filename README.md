@@ -8,12 +8,21 @@ Functions
 
 * Management of tracking providers
 * Automatic compression of tracking code
-* @todo Page for opt-out of tracking
+* Page for opt-out of tracking
 * @todo Goal / Conversions tracking API
 
+Supported tracking providers
+----------------------------
+Feel free to create a pull request adding any tracking providers you need.
+
+* Piwik
+* @todo Google Analytics
+
 Why don't use the footer-code option?
-------------------------------------
-This packages contains an easy to use API for tracking goals / conversions. For example tracking whether an user has registered is only one click away. Additionally the management of multiple tracking providers is a lot easier.
+-------------------------------------
+This package contains an easy to use API for tracking goals / conversions. For example tracking whether an user has registered is only one click away.
+Additionally the management of multiple tracking providers is a lot easier. Admins (or any user group you want for that matter) are excluded from 
+the tracking by default.
 
 License
 -------

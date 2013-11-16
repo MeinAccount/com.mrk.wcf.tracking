@@ -2,6 +2,7 @@
 namespace wcf\acp\form;
 use wcf\data\tracking\provider\TrackingProvider;
 use wcf\data\tracking\provider\TrackingProviderAction;
+use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 
@@ -13,7 +14,7 @@ use wcf\system\WCF;
  * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl-2.1.txt>
  * @package	com.mrk.wcf.tracking
  */
-class TrackingProviderEditForm extends AbstractTrackingProviderForm {
+class TrackingProviderEditForm extends TrackingProviderAddForm {
 	/**
 	 * tracking provider id
 	 * @var	integer
@@ -30,20 +31,25 @@ class TrackingProviderEditForm extends AbstractTrackingProviderForm {
 	 * @see	\wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
-		parent::readParameters();
+		AbstractForm::readParameters();
 
 		if (isset($_REQUEST['id'])) $this->trackingProviderID = intval($_REQUEST['id']);
 		$this->trackingProvider = new TrackingProvider($this->trackingProviderID);
 		if (!$this->trackingProvider->trackingProviderID) {
 			throw new IllegalLinkException();
 		}
+		
+		// create provider instance
+		$this->className = $this->trackingProvider->className;
+		$className = $this->trackingProvider->className;
+		$this->provider = new $className();
 	}
 	
 	/**
 	 * @see	\wcf\form\IForm::save()
 	 */
 	public function save() {
-		parent::save();
+		AbstractForm::save();
 		
 		// update tracking provider
 		$data = array(
@@ -68,7 +74,6 @@ class TrackingProviderEditForm extends AbstractTrackingProviderForm {
 		
 		if (empty($_POST)) {
 			$this->providerName = $this->trackingProvider->providerName;
-			$this->className = $this->trackingProvider->className;
 			$this->trackingURL = $this->trackingProvider->trackingURL;
 			$this->trackingID = $this->trackingProvider->trackingID;
 		}

@@ -8,10 +8,12 @@
 		<acpmenuitem name="wcf.acp.menu.link.user.tracking.provider.list">
 			<controller><![CDATA[wcf\acp\page\TrackingProviderListPage]]></controller>
 			<parent>wcf.acp.menu.link.user.tracking</parent>
+			<permissions>admin.user.canManageTrackingProvider</permissions>
 		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.user.tracking.provider.add">
 			<controller><![CDATA[wcf\acp\page\TrackingProviderStartPage]]></controller>
 			<parent>wcf.acp.menu.link.user.tracking</parent>
+			<permissions>admin.user.canManageTrackingProvider</permissions>
 		</acpmenuitem>
 	</import>
 </data>

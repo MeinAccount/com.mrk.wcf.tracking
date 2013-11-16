@@ -2,7 +2,7 @@
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
 	<category name="wcf.acp.group">
 		<item name="wcf.acp.group.option.category.admin.user.tracking"><![CDATA[Tracking]]></item>
-		<item name="wcf.acp.group.option.admin.user.isNotTracked"><![CDATA[Diesen Benutzer vom Tracking ausschließen]]></item>
+		<item name="wcf.acp.group.option.admin.user.isNotTracked"><![CDATA[Mitglieder dieser Benutzergruppe vom Tracking ausschließen]]></item>
 		<item name="wcf.acp.group.option.admin.user.canManageTrackingProvider"><![CDATA[Kann Tracking-Anbieter verwalten]]></item>
 	</category>
 	
@@ -27,7 +27,7 @@
 		<item name="wcf.acp.tracking.provider.delete.sure"><![CDATA[Wollen Sie den Tracking-Anbieter {$trackingProvider->providerName} wirklich löschen?]]></item>
 		<item name="wcf.acp.tracking.provider.edit"><![CDATA[Tracking-Anbieter bearbeiten]]></item>
 		<item name="wcf.acp.tracking.provider.list"><![CDATA[Tracking-Anbieter auflisten]]></item>
-		<item name="wcf.acp.tracking.provider.notSet"><![CDATA[Nicht gesetzt]]></item>
+		<item name="wcf.acp.tracking.provider.notRequired"><![CDATA[Nicht benötigt]]></item>
 		<item name="wcf.acp.tracking.provider.providerName"><![CDATA[Tracking-Anbieter]]></item>
 		<item name="wcf.acp.tracking.provider.providerName.error.notUnique"><![CDATA[Dieser Tracking-Anbieter existiert bereits.]]></item>
 		<item name="wcf.acp.tracking.provider.start.preset"><![CDATA[Voreingestellte Tracking-Anbieter]]></item>
