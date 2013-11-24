@@ -2,6 +2,7 @@
 namespace wcf\acp\page;
 use wcf\page\SortablePage;
 use wcf\system\cache\builder\TrackingProviderCacheBuilder;
+use wcf\system\clipboard\ClipboardHandler;
 use wcf\system\WCF;
 
 /**
@@ -64,6 +65,7 @@ class TrackingGoalListPage extends SortablePage {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign(array(
+			'hasMarkedItems' => ClipboardHandler::getInstance()->hasMarkedItems(ClipboardHandler::getInstance()->getObjectTypeID('com.woltlab.wcf.user')),
 			'trackingProviders' => $this->trackingProviders,
 			'trackingProviderInvalid' => !in_array(TRACKING_GOAL_PROVIDER, array_keys($this->trackingProviders))
 		));

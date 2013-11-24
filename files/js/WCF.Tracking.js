@@ -57,15 +57,71 @@ WCF.Tracking.ProxyClass = Class.extend({
 });
 
 /**
- * Namespace for the GoalListPage
+ * Implementation for AJAXProxy-based toggle actions.
+ * Handles the clipboard actions 'enable' and 'disable'.
+ * @todo pull request to WCF?
  */
-WCF.Tracking.GoalList = { };
+WCF.Tracking.ClipboardToggle = WCF.Action.Toggle.extend({
+	/**
+	 * object type used in the clipboard
+	 * @var	string
+	 */
+	_objectType: undefined,
+	
+	/**
+	 * @see		WCF.Action.Toggle.init()
+	 * @param	string		buttonSelector
+	 */
+	init: function(className, containerSelector, buttonSelector, objectType) {
+		this._super(className, containerSelector, buttonSelector);
+		this._objectType = objectType;
+		
+		// bind listener
+		$('.jsClipboardEditor').each($.proxy(function(index, container) {
+			var $container = $(container);
+			var $types = eval($container.data('types'));
+			if (WCF.inArray(this._objectType, $types)) {
+				$container.on('clipboardAction', $.proxy(this._execute, this));
+				return false;
+			}
+		}, this));
+	},
+	
+	/**
+	 * Handles clipboard actions.
+	 *
+	 * @param	object		event
+	 * @param	string		type
+	 * @param	string		actionName
+	 * @param	object		parameters
+	 */
+	_execute: function(event, type, actionName, parameters) {
+		if (actionName == this._objectType + '.enable' || actionName == this._objectType + '.disable') {
+			this.proxy.setOption('data', {
+				actionName: 'toggle',
+				className: this._className,
+				interfaceName: 'wcf\\data\\IToggleAction',
+				objectIDs: parameters.objectIDs
+			});
+			
+			this.proxy.sendRequest();
+		}
+	},
+	
+	/**
+	 * @see	WCF.Action.Toggle._success()
+	 */
+	_success: function(data, textStatus, jqXHR) {
+		this._super(data, textStatus, jqXHR);
+		WCF.Clipboard.reload();
+	}
+});
 
 /**
  * Handler for TrackingGoalListPage
  * Allows selection of a tracking provider for goal tracking
  */
-WCF.Tracking.GoalList.SelectProvider = WCF.Tracking.ProxyClass.extend({
+WCF.Tracking.GoalList = WCF.Tracking.ProxyClass.extend({
 	/**
 	 * Initializes the goal tracking provider selection form.
 	 */
@@ -99,20 +155,6 @@ WCF.Tracking.GoalList.SelectProvider = WCF.Tracking.ProxyClass.extend({
 	 */
 	_failure: function() {
 		$('#goalTrackingProvider small').addClass('innerError');
-	}
-});
-
-/**
- * Implementation for AJAXProxy-based toggle actions on tracking goals
- */
-WCF.Tracking.GoalList.Toggle = WCF.Action.Toggle.extend({
-	/**
-	 * @see	WCF.Action.Toggle._click()
-	 */
-	_click: function(event) {
-		if ($(event.currentTarget).data('valid')) {
-			this._super(event);
-		}
 	}
 });
 

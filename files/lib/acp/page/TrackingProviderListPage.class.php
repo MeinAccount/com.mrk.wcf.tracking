@@ -1,6 +1,8 @@
 <?php
 namespace wcf\acp\page;
 use wcf\page\SortablePage;
+use wcf\system\clipboard\ClipboardHandler;
+use wcf\system\WCF;
 
 /**
  * Shows information about tracking providers.
@@ -35,4 +37,13 @@ class TrackingProviderListPage extends SortablePage {
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
 	 */
 	public $objectListClassName = 'wcf\data\tracking\provider\TrackingProviderList';
+	
+	/**
+	 * @see	\wcf\page\IPage::assignVariables()
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+		
+		WCF::getTPL()->assign('hasMarkedItems', ClipboardHandler::getInstance()->hasMarkedItems(ClipboardHandler::getInstance()->getObjectTypeID('com.woltlab.wcf.user')));
+	}
 }

@@ -4,12 +4,15 @@
 	<h1>{lang}wcf.acp.tracking.provider.list{/lang}</h1>
 </header>
 
+<script data-relocate="true" src="{@$__wcf->getPath('wcf')}js/WCF.Tracking{if !ENABLE_DEBUG_MODE}.min{/if}.js?v={@$__wcfVersion}"></script>
 <script data-relocate="true">
 	//<![CDATA[
 	$(function() {
-		new WCF.Action.Toggle('wcf\\data\\tracking\\provider\\TrackingProviderAction', '.jsTrackingProviderRow');
-		new WCF.Action.Delete('wcf\\data\\tracking\\provider\\TrackingProviderAction', '.jsTrackingProviderRow');
-
+		var actionObjects = { };
+		actionObjects['delete'] = new WCF.Action.Delete('wcf\\data\\tracking\\provider\\TrackingProviderAction', '.jsTrackingProviderRow');
+		WCF.Clipboard.init('wcf\\acp\\page\\TrackingProviderListPage', {@$hasMarkedItems}, { 'com.mrk.wcf.tracking.provider': actionObjects });
+		new WCF.Tracking.ClipboardToggle('wcf\\data\\tracking\\provider\\TrackingProviderAction', '.jsTrackingProviderRow', '.jsToggleButton', 'com.mrk.wcf.tracking.provider');
+		
 		var options = { };
 		{if $pages > 1}
 			options.refreshPage = true;
@@ -41,9 +44,10 @@
 			<h2>{lang}wcf.acp.tracking.provider.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
 		</header>
 
-		<table class="table">
+		<table data-type="com.mrk.wcf.tracking.provider" class="table jsClipboardContainer">
 			<thead>
 				<tr>
+					<th class="columnMark"><label><input type="checkbox" class="jsClipboardMarkAll" /></label></th>
 					<th class="columnID{if $sortField == 'trackingProviderID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='TrackingProviderList'}pageNo={@$pageNo}&sortField=trackingProviderID&sortOrder={if $sortField == 'trackingProviderID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
 					<th class="columnTitle{if $sortField == 'providerName'} active {@$sortOrder}{/if}"><a href="{link controller='TrackingProviderList'}pageNo={@$pageNo}&sortField=providerName&sortOrder={if $sortField == 'providerName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.tracking.provider.providerName{/lang}</a></th>
 					<th class="columnURL{if $sortField == 'trackingURL'} active {@$sortOrder}{/if}"><a href="{link controller='TrackingProviderList'}pageNo={@$pageNo}&sortField=trackingURL&sortOrder={if $sortField == 'trackingURL' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.tracking.provider.trackingURL{/lang}</a></th>
@@ -56,6 +60,7 @@
 			<tbody>
 				{foreach from=$objects item=trackingProvider}
 					<tr class="jsTrackingProviderRow">
+						<td class="columnMark"><input type="checkbox" class="jsClipboardItem" data-object-id="{$trackingProvider->trackingProviderID}" /></td>
 						<td class="columnIcon">
 							<span class="icon icon16 icon-check{if $trackingProvider->isDisabled}-empty{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$trackingProvider->isDisabled}disable{else}enable{/if}{/lang}" data-object-id="{@$trackingProvider->trackingProviderID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
 							<a href="{link controller='TrackingProviderEdit' object=$trackingProvider}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
@@ -88,6 +93,7 @@
 			{event name='contentNavigationButtonsBottom'}
 		</ul>
 	</nav>
+	<nav class="jsClipboardEditor" data-types="[ 'com.mrk.wcf.tracking.provider' ]"></nav>
 </div>
 
 {include file='footer'}

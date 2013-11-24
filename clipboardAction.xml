@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/clipboardAction.xsd">
+	<import>
+		<!-- tracking goal -->
+		<action name="enable">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingGoalClipboardAction]]></actionclassname>
+			<showorder>1</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingGoalListPage]]></page>
+			</pages>
+		</action>
+		<action name="disable">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingGoalClipboardAction]]></actionclassname>
+			<showorder>2</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingGoalListPage]]></page>
+			</pages>
+		</action>
+		<action name="delete">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingGoalClipboardAction]]></actionclassname>
+			<showorder>3</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingGoalListPage]]></page>
+			</pages>
+		</action>
+		<!-- /tracking goal -->
+		
+		<!-- tracking provider -->
+		<action name="enable">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingProviderClipboardAction]]></actionclassname>
+			<showorder>1</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingProviderListPage]]></page>
+			</pages>
+		</action>
+		<action name="disable">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingProviderClipboardAction]]></actionclassname>
+			<showorder>2</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingProviderListPage]]></page>
+			</pages>
+		</action>
+		<action name="delete">
+			<actionclassname><![CDATA[wcf\system\clipboard\action\TrackingProviderClipboardAction]]></actionclassname>
+			<showorder>3</showorder>
+			<pages>
+				<page><![CDATA[wcf\acp\page\TrackingProviderListPage]]></page>
+			</pages>
+		</action>
+		<!-- /tracking provider -->
+	</import>
+</data>

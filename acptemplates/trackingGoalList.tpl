@@ -8,9 +8,11 @@
 <script data-relocate="true">
 	//<![CDATA[
 	$(function() {
-		new WCF.Tracking.GoalList.Toggle('wcf\\data\\tracking\\goal\\TrackingGoalAction', '.jsTrackingGoalRow');
-		new WCF.Action.Delete('wcf\\data\\tracking\\goal\\TrackingGoalAction', '.jsTrackingGoalRow');
-		new WCF.Tracking.GoalList.SelectProvider();
+		var actionObjects = { };
+		actionObjects['delete'] = new WCF.Action.Delete('wcf\\data\\tracking\\goal\\TrackingGoalAction', '.jsTrackingGoalRow');
+		WCF.Clipboard.init('wcf\\acp\\page\\TrackingGoalListPage', {@$hasMarkedItems}, { 'com.mrk.wcf.tracking.goal': actionObjects });
+		new WCF.Tracking.ClipboardToggle('wcf\\data\\tracking\\goal\\TrackingGoalAction', '.jsTrackingGoalRow', '.jsToggleButton', 'com.mrk.wcf.tracking.goal');
+		new WCF.Tracking.GoalList();
 		
 		var options = { };
 		{if $pages > 1}
@@ -67,9 +69,10 @@
 			<h2>{lang}wcf.acp.tracking.goal.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
 		</header>
 		
-		<table class="table">
+		<table data-type="com.mrk.wcf.tracking.goal" class="table jsClipboardContainer">
 			<thead>
 				<tr>
+					<th class="columnMark"><label><input type="checkbox" class="jsClipboardMarkAll" /></label></th>
 					<th class="columnID{if $sortField == 'trackingGoalID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='TrackingGoalList'}pageNo={@$pageNo}&sortField=trackingGoalID&sortOrder={if $sortField == 'trackingGoalID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
 					<th class="columnTitle{if $sortField == 'goalName'} active {@$sortOrder}{/if}"><a href="{link controller='TrackingGoalList'}pageNo={@$pageNo}&sortField=goalName&sortOrder={if $sortField == 'goalName' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.tracking.goal.goalName{/lang}</a></th>
 					<th class="columnText{if $sortField == 'description'} active {@$sortOrder}{/if}"><a href="{link controller='TrackingGoalList'}pageNo={@$pageNo}&sortField=description&sortOrder={if $sortField == 'description' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.tracking.goal.description{/lang}</a></th>
@@ -82,8 +85,13 @@
 			<tbody>
 				{foreach from=$objects item=trackingGoal}
 					<tr class="jsTrackingGoalRow">
+						<td class="columnMark"><input type="checkbox" class="jsClipboardItem" data-object-id="{$trackingGoal->trackingGoalID}" /></td>
 						<td class="columnIcon">
-							<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" class="icon icon16 icon-check{if $trackingGoal->isDisabled}-empty{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$trackingGoal->isDisabled}disable{else}enable{/if}{/lang}" data-object-id="{@$trackingGoal->trackingGoalID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"{if $trackingGoal->trackingID} data-valid="1"{/if}></a>
+							{if $trackingGoal->trackingID}
+								<span class="icon icon16 icon-check{if $trackingGoal->isDisabled}-empty{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$trackingGoal->isDisabled}disable{else}enable{/if}{/lang}" data-object-id="{@$trackingGoal->trackingGoalID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
+							{else}
+								<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" class="icon icon16 icon-check-empty jsTooltip pointer" title="{lang}wcf.global.button.disable{/lang}"></a>
+							{/if}
 							<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
 							<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$trackingGoal->trackingGoalID}" data-confirm-message="{lang}wcf.acp.tracking.goal.delete.sure{/lang}"></span>
 							
@@ -114,6 +122,7 @@
 			{event name='contentNavigationButtonsBottom'}
 		</ul>
 	</nav>
+	<nav class="jsClipboardEditor" data-types="[ 'com.mrk.wcf.tracking.goal' ]"></nav>
 </div>
 
 {include file='footer'}

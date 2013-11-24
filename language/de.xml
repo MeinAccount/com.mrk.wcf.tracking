@@ -59,6 +59,19 @@
 		<item name="wcf.acp.tracking.provider.trackingURL.description"><![CDATA[Bei einer eigenen Installation einer Webanalyseplattform geben Sie hier die URL an. Die Angabe erfolgt dabei ohne Protokoll, z.B. &raquo;example.com/piwik&laquo; oder &raquo;piwik.example.com&laquo;.]]></item>
 	</category>
 	
+	<category name="wcf.clipboard">
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.goal.delete"><![CDATA[Löschen ({#$count})]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.goal.delete.confirmMessage"><![CDATA[Wollen Sie {if $count == 1}ein Tracking-Ziel{else}{#$count} Tracking-Ziele{/if} wirklich löschen?]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.goal.disable"><![CDATA[Deaktivieren ({#$count})]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.goal.enable"><![CDATA[Aktivieren ({#$count})]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.provider.delete"><![CDATA[Löschen ({#$count})]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.provider.delete.confirmMessage"><![CDATA[Wollen Sie {if $count == 1}einen{else}{#$count}{/if} Tracking-Anbieter wirklich löschen?]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.provider.disable"><![CDATA[Deaktivieren ({#$count})]]></item>
+		<item name="wcf.clipboard.item.com.mrk.wcf.tracking.provider.enable"><![CDATA[Aktivieren ({#$count})]]></item>
+		<item name="wcf.clipboard.label.com.mrk.wcf.tracking.goal.marked"><![CDATA[{if $count == 1}Ein Tracking-Ziel{else}{#$count} Tracking-Ziele{/if} markiert]]></item>
+		<item name="wcf.clipboard.label.com.mrk.wcf.tracking.provider.marked"><![CDATA[{if $count == 1}Ein{else}{#$count}{/if} Tracking-Anbieter markiert]]></item>
+	</category>
+	
 	<category name="wcf.tracking.opt_out">
 		<item name="wcf.tracking.opt_out"><![CDATA[Datenschutz]]></item>
 	</category>

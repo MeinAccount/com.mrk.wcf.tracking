@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/objectType.xsd">
 	<import>
+		<!-- tracking providers -->
 		<type>
 			<name>com.mrk.wcf.tracking.provider.piwik</name>
 			<definitionname>com.mrk.wcf.tracking.provider</definitionname>
 			<classname>wcf\system\tracking\provider\PiwikTrackingProvider</classname>
 		</type>
+		<!-- /tracking providers -->
+		
+		<!-- clipboard -->
+		<type>
+			<name>com.mrk.wcf.tracking.goal</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>wcf\data\tracking\goal\TrackingGoalList</listclassname>
+		</type>
+		<type>
+			<name>com.mrk.wcf.tracking.provider</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>wcf\data\tracking\provider\TrackingProviderList</listclassname>
+		</type>
+		<!-- /clipboard -->
 	</import>
 </data>

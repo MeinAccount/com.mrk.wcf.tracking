@@ -25,6 +25,7 @@
 		<instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="acpTemplate">acptemplates.tar</instruction>
 		<instruction type="acpSearchProvider">acpSearchProvider.xml</instruction>
+		<instruction type="clipboardAction">clipboardAction.xml</instruction>
 		<instruction type="coreObject">coreObject.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="objectType">objectType.xml</instruction>
