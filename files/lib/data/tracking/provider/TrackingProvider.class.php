@@ -24,9 +24,7 @@ class TrackingProvider extends DatabaseObject implements IRouteController {
 	protected static $databaseTableIndexName = 'trackingProviderID';
 	
 	/**
-	 * Returns the title of the object.
-	 *
-	 * @return        string
+	 * @see	\wcf\data\ITitledObject::getTitle()
 	 */
 	public function getTitle() {
 		return $this->providerName;

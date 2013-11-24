@@ -15,5 +15,16 @@
 			<parent>wcf.acp.menu.link.user.tracking</parent>
 			<permissions>admin.user.canManageTrackingProvider</permissions>
 		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.user.tracking.goal.list">
+			<controller><![CDATA[wcf\acp\page\TrackingGoalListPage]]></controller>
+			<parent>wcf.acp.menu.link.user.tracking</parent>
+			<permissions>admin.user.canManageTrackingGoal</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.user.tracking.goal.add">
+			<controller><![CDATA[wcf\acp\page\TrackingGoalAddForm]]></controller>
+			<parent>wcf.acp.menu.link.user.tracking</parent>
+			<permissions>admin.user.canManageTrackingGoal</permissions>
+		</acpmenuitem>
 	</import>
 </data>

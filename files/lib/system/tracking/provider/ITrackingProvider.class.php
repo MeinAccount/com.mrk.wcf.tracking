@@ -40,4 +40,11 @@ interface ITrackingProvider {
 	 * @return	boolean
 	 */
 	public function requiresID();
+	
+	/**
+	 * Checks whether the tracking provider supports goal tracking
+	 * 
+	 * @return	boolean
+	 */
+	public function supportsGoalTracking();
 }

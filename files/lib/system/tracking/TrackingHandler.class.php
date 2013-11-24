@@ -42,18 +42,6 @@ class TrackingHandler extends SingletonFactory {
 	}
 	
 	/**
-	 * Fetches all enabled tracking providers
-	 * 
-	 * @return	array<\wcf\data\tracking\provider\TrackingProvider>
-	 */
-	public function getTrackingProviders() {
-		$trackingProviderList = new TrackingProviderList();
-		$trackingProviderList->getConditionBuilder()->add('isDisabled = ?', array(0));
-		$trackingProviderList->readObjects();
-		return $trackingProviderList->getObjects();
-	}
-	
-	/**
 	 * Checks if the given class name is a valid tracking provider
 	 * 
 	 * @param	string	$className

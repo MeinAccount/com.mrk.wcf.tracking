@@ -55,4 +55,11 @@ class AbstractTrackingProvider implements ITrackingProvider {
 	public function requiresID() {
 		return true;
 	}
+	
+	/**
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::supportsGoalTracking()
+	 */
+	public function supportsGoalTracking() {
+		return true;
+	}
 }

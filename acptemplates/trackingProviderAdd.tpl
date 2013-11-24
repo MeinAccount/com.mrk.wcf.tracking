@@ -46,7 +46,7 @@
 
 		{if $provider->requiresURL() || $provider->requiresID()}
 			<fieldset>
-				<legend>{lang}wcf.acp.tracking.provider.trackingData{/lang}</legend>
+				<legend>{lang}wcf.acp.tracking.provider{/lang}</legend>
 				
 				{if $provider->requiresURL()}
 					<dl{if $errorField == 'trackingURL'} class="formError"{/if}>

@@ -3,6 +3,7 @@ namespace wcf\data\tracking\provider;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
 use wcf\system\cache\builder\TrackingCodeCacheBuilder;
+use wcf\system\cache\builder\TrackingProviderCacheBuilder;
 
 /**
  * Provides functions to edit tracking providers.
@@ -22,6 +23,7 @@ class TrackingProviderEditor extends DatabaseObjectEditor implements IEditableCa
 	 * @see	\wcf\data\IEditableCachedObject::resetCache()
 	 */
 	public static function resetCache() {
+		TrackingProviderCacheBuilder::getInstance()->reset();
 		TrackingCodeCacheBuilder::getInstance()->reset();
 	}
 }

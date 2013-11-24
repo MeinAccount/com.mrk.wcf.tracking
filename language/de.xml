@@ -4,10 +4,13 @@
 		<item name="wcf.acp.group.option.category.admin.user.tracking"><![CDATA[Tracking]]></item>
 		<item name="wcf.acp.group.option.admin.user.isNotTracked"><![CDATA[Mitglieder dieser Benutzergruppe vom Tracking ausschließen]]></item>
 		<item name="wcf.acp.group.option.admin.user.canManageTrackingProvider"><![CDATA[Kann Tracking-Anbieter verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.user.canManageTrackingGoal"><![CDATA[Kann Tracking-Ziele verwalten]]></item>
 	</category>
 	
 	<category name="wcf.acp.menu">
 		<item name="wcf.acp.menu.link.user.tracking"><![CDATA[Tracking]]></item>
+		<item name="wcf.acp.menu.link.user.tracking.goal.add"><![CDATA[Tracking-Ziel hinzufügen]]></item>
+		<item name="wcf.acp.menu.link.user.tracking.goal.list"><![CDATA[Tracking-Ziel auflisten]]></item>
 		<item name="wcf.acp.menu.link.user.tracking.provider.add"><![CDATA[Tracking-Anbieter hinzufügen]]></item>
 		<item name="wcf.acp.menu.link.user.tracking.provider.list"><![CDATA[Tracking-Anbieter auflisten]]></item>
 	</category>
@@ -23,12 +26,26 @@
 	</category>
 	
 	<category name="wcf.acp.tracking">
+		<item name="wcf.acp.tracking.goal.add"><![CDATA[Tracking-Ziel hinzufügen]]></item>
+		<item name="wcf.acp.tracking.goal.delete.sure"><![CDATA[Möchten Sie das Tracking-Ziel {$trackingGoal->goalName} wirklich löschen?]]></item>
+		<item name="wcf.acp.tracking.goal.description"><![CDATA[Beschreibung]]></item>
+		<item name="wcf.acp.tracking.goal.edit"><![CDATA[Tracking-Ziel bearbeiten]]></item>
+		<item name="wcf.acp.tracking.goal.goalName"><![CDATA[Tracking-Ziel]]></item>
+		<item name="wcf.acp.tracking.goal.goalName.error.notUnique"><![CDATA[Dieses Tracking-Ziel existiert bereits.]]></item>
+		<item name="wcf.acp.tracking.goal.list"><![CDATA[Tracking-Ziele auflisten]]></item>
+		<item name="wcf.acp.tracking.goal.notSet"><![CDATA[Nicht gesetzt]]></item>
+		<item name="wcf.acp.tracking.goal.trackingID"><![CDATA[Tracking-ID]]></item>
+		<item name="wcf.acp.tracking.goal.trackingID.description"><![CDATA[Diese ID wird zum tracken des Ziels verwendet.]]></item>
+		<item name="wcf.acp.tracking.goal.trackingID.required"><![CDATA[Um dieses Tracking-Ziel verwenden zu können, muss die Tracking-ID gesetzt werden.]]></item>
+		<item name="wcf.acp.tracking.goal.trackingProvider.description"><![CDATA[Sie müssen zum Erfassen von Zielen einen Tracking-Anbieter, der das Tracken von Zielen erlaubt, auswählen.]]></item>
+		
+		<item name="wcf.acp.tracking.provider"><![CDATA[Tracking-Anbieter]]></item>
 		<item name="wcf.acp.tracking.provider.add"><![CDATA[Tracking-Anbieter hinzufügen]]></item>
 		<item name="wcf.acp.tracking.provider.com.mrk.wcf.tracking.provider.piwik"><![CDATA[Piwik]]></item>
 		<item name="wcf.acp.tracking.provider.className"><![CDATA[PHP-Klassenname]]></item>
 		<item name="wcf.acp.tracking.provider.className.error.invalid"><![CDATA[Diese Klasse muss das Interface wcf\\\system\\\tracking\\\provider\\\ITrackingProvider implementieren.]]></item>
 		<item name="wcf.acp.tracking.provider.className.error.notFound"><![CDATA[Diese Klasse wurde nicht gefunden.]]></item>
-		<item name="wcf.acp.tracking.provider.delete.sure"><![CDATA[Wollen Sie den Tracking-Anbieter {$trackingProvider->providerName} wirklich löschen?]]></item>
+		<item name="wcf.acp.tracking.provider.delete.sure"><![CDATA[Möchten Sie den Tracking-Anbieter {$trackingProvider->providerName} wirklich löschen?]]></item>
 		<item name="wcf.acp.tracking.provider.edit"><![CDATA[Tracking-Anbieter bearbeiten]]></item>
 		<item name="wcf.acp.tracking.provider.list"><![CDATA[Tracking-Anbieter auflisten]]></item>
 		<item name="wcf.acp.tracking.provider.notRequired"><![CDATA[Nicht benötigt]]></item>
@@ -38,7 +55,6 @@
 		<item name="wcf.acp.tracking.provider.start.custom"><![CDATA[Eigener Tracking-Anbieter]]></item>
 		<item name="wcf.acp.tracking.provider.trackingID"><![CDATA[Tracking-ID]]></item>
 		<item name="wcf.acp.tracking.provider.trackingID.description"><![CDATA[Für das erfolgreiche Tracking wird die Tracking-ID dieser Webseite benötigt. Diese erfahren Sie bei Ihrem Tracking-Anbieter.]]></item>
-		<item name="wcf.acp.tracking.provider.trackingData"><![CDATA[Tracking-Anbieter]]></item>
 		<item name="wcf.acp.tracking.provider.trackingURL"><![CDATA[Tracking-URL]]></item>
 		<item name="wcf.acp.tracking.provider.trackingURL.description"><![CDATA[Bei einer eigenen Installation einer Webanalyseplattform geben Sie hier die URL an. Die Angabe erfolgt dabei ohne Protokoll, z.B. &raquo;example.com/piwik&laquo; oder &raquo;piwik.example.com&laquo;.]]></item>
 	</category>

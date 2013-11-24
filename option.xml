@@ -14,6 +14,11 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="tracking_goal_provider">
+				<categoryname>module.user</categoryname>
+				<optiontype>integer</optiontype>
+				<hidden>1</hidden>
+			</option>
 			<!-- /module.user -->
 		</options>
 	</import>

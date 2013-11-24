@@ -1,6 +1,5 @@
 <?php
 namespace wcf\system\cache\builder;
-use wcf\system\tracking\TrackingHandler;
 
 /**
  * Caches the tracking code. 
@@ -14,12 +13,13 @@ class TrackingCodeCacheBuilder extends AbstractCacheBuilder {
 	 * @see	\wcf\system\cache\builder\AbstractCacheBuilder::rebuild()
 	 */
 	protected function rebuild(array $parameters) {
-		$tracking = '';
-		$optOut = '';
-		foreach (TrackingHandler::getInstance()->getTrackingProviders() as $trackingProvider) {
-			$provider = $trackingProvider->getProvider();
-			$tracking .= $provider->getTrackingCode($trackingProvider);
-			$optOut .= $provider->getOptOutCode($trackingProvider);
+		$tracking = $optOut = '';
+		foreach (TrackingProviderCacheBuilder::getInstance()->getData() as $trackingProvider) {
+			if (!$trackingProvider->isDisabled) {
+				$provider = $trackingProvider->getProvider();
+				$tracking .= $provider->getTrackingCode($trackingProvider);
+				$optOut .= $provider->getOptOutCode($trackingProvider);
+			}
 		}
 		
 		return array('tracking' => $this->minifyCode($tracking), 'optOut' => $this->minifyCode($optOut));

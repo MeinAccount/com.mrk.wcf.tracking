@@ -5,7 +5,7 @@
 	//<![CDATA[
 	$(function() {
 		WCF.TabMenu.init();
-		new WCF.Tracking.StartHandler();
+		new WCF.Tracking.ProviderStart();
 		
 		WCF.Language.addObject({
 			'wcf.acp.tracking.provider.className.error.invalid': '{lang}wcf.acp.tracking.provider.className.error.invalid{/lang}',
@@ -72,7 +72,7 @@
 
 			<div class="formSubmit">
 				<input type="submit" name="submitButton" value="{lang}wcf.global.button.next{/lang}" accesskey="s" />
-				<input type="hidden" name="s" value="{@$__wcf->session->sessionID}" />{@SECURITY_TOKEN_INPUT_TAG}
+				{@SID_INPUT_TAG}{@SECURITY_TOKEN_INPUT_TAG}
 			</div>
 		</form>
 	</div>

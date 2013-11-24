@@ -19,6 +19,7 @@
 	<instructions type="install">
 		<instruction type="file">files.tar</instruction>
 		<instruction type="objectTypeDefinition">objectTypeDefinition.xml</instruction>
+		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
 		<instruction type="sql">install.sql</instruction>
 		
 		<instruction type="acpMenu">acpMenu.xml</instruction>

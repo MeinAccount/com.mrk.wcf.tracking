@@ -1,6 +1,6 @@
 {include file=documentHeader}
 <head>
-	<title>{lang}wcf.tracking.opt_out{/lang}- {PAGE_TITLE|language}</title>
+	<title>{lang}wcf.tracking.opt_out{/lang} - {PAGE_TITLE|language}</title>
 	{include file=headInclude}
 
 	<link rel="canonical" href="{link controller='Tracking'}{/link}" />
