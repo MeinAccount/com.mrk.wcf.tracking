@@ -1,7 +1,6 @@
 <?php
 namespace wcf\data\tracking\goal;
 use wcf\data\DatabaseObject;
-use wcf\system\cache\builder\TrackingProviderCacheBuilder;
 use wcf\system\request\IRouteController;
 
 /**
@@ -24,18 +23,32 @@ class TrackingGoal extends DatabaseObject implements IRouteController {
 	protected static $databaseTableIndexName = 'trackingGoalID';
 	
 	/**
+	 * @var	integer
+	 */
+	protected $revenue = null;
+	
+	/**
 	 * @see	\wcf\data\ITitledObject::getTitle()
 	 */
 	public function getTitle() {
 		return $this->goalName;
 	}
-
+	
 	/**
-	 * Returns the tracking provider
-	 * 
-	 * @return	\wcf\data\tracking\provider\TrackingProvider
+	 * Returns the revenue
+	 *
+	 * @return	integer
 	 */
-	public function getTrackingProvider() {
-		return TrackingProviderCacheBuilder::getInstance()->getData(array(), $this->trackingProviderID);
+	public function getRevenue() {
+		return $this->revenue;
+	}
+	
+	/**
+	 * Sets the revenue
+	 * 
+	 * @param	integer	$revenue
+	 */
+	public function setRevenue($revenue) {
+		$this->revenue = $revenue;
 	}
 }

@@ -74,5 +74,6 @@
 	
 	<category name="wcf.tracking.opt_out">
 		<item name="wcf.tracking.opt_out"><![CDATA[Datenschutz]]></item>
+		<item name="wcf.tracking.opt_out.notTracked"><![CDATA[Sie sind vom Tracking ausgeschlossen.]]></item>
 	</category>
 </language>

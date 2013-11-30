@@ -12,6 +12,15 @@ use wcf\data\tracking\provider\TrackingProvider;
  */
 interface ITrackingProvider {
 	/**
+	 * Returns the goal tracking code
+	 *
+	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
+	 * @param	string						$trackingCode
+	 * @return	string
+	 */
+	public function getAdditionalTrackingCode(TrackingProvider $trackingProvider, $trackingCode);
+	
+	/**
 	 * Returns the tracking code
 	 * 
 	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
@@ -26,6 +35,13 @@ interface ITrackingProvider {
 	 * @return	string
 	 */
 	public function getOptOutCode(TrackingProvider $trackingProvider);
+
+	/**
+	 * Checks whether the tracking provider requires an tracking id
+	 *
+	 * @return	boolean
+	 */
+	public function requiresID();
 	
 	/**
 	 * Checks whether the tracking provider requires an URL 
@@ -33,13 +49,6 @@ interface ITrackingProvider {
 	 * @return	boolean
 	 */
 	public function requiresURL();
-	
-	/**
-	 * Checks whether the tracking provider requires an tracking id
-	 *
-	 * @return	boolean
-	 */
-	public function requiresID();
 	
 	/**
 	 * Checks whether the tracking provider supports goal tracking

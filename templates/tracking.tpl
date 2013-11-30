@@ -13,7 +13,8 @@
 	<h1>{lang}wcf.tracking.opt_out{/lang}</h1>
 </header>
 
-{@$__wcf->getTrackingHandler()->getOptOutCode()}
+{assign var=trackingOptOut value=$__wcf->getTrackingHandler()->getOptOutCode()}
+{if $trackingOptOut}{@$trackingOptOut}{else}<p class="success">{lang}wcf.tracking.opt_out.notTracked{/lang}</p>{/if}
 
 {include file='footer'}
 </body>

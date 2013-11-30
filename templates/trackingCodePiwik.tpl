@@ -1,8 +1,8 @@
 <script type="text/javascript">
 	var _paq = _paq || [];
 	_paq.push(["trackPageView"]);
-	_paq.push(["enableLinkTracking"]);
-
+	_paq.push(["enableLinkTracking"]); <!-- com.mrk.wcf.tracking.goal.codePlaceholder -->
+	
 	(function() {
 		var u=(("https:" == document.location.protocol) ? "https" : "http") + "://{@$trackingURL}";
 		_paq.push(["setTrackerUrl", u+"piwik.php"]);

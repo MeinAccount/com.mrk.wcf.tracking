@@ -1,6 +1,8 @@
 <?php
 namespace wcf\system\tracking\provider;
+use wcf\data\tracking\goal\TrackingGoal;
 use wcf\data\tracking\provider\TrackingProvider;
+use wcf\system\tracking\TrackingHandler;
 use wcf\system\WCF;
 
 /**
@@ -10,12 +12,39 @@ use wcf\system\WCF;
  * @copyright        2013 Magnus Kühn
  * @package          com.mrk.wcf.tracking
  */
-class AbstractTrackingProvider implements ITrackingProvider {
+abstract class AbstractTrackingProvider implements ITrackingProvider {
 	/**
 	 * template name
 	 * @var	string
 	 */
 	protected $templateName = null;
+
+	/**
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::getAdditionalTrackingCode()
+	 */
+	public function getAdditionalTrackingCode(TrackingProvider $trackingProvider, $trackingCode) {
+		if ($this->supportsGoalTracking()) { // fetch goal tracking code
+			$goalCode = '';
+			if (TRACKING_GOAL_PROVIDER == $trackingProvider->trackingProviderID) {
+				foreach (TrackingHandler::getInstance()->getFulfilledGoals() as $trackingGoal) {
+					$goalCode .= $this->getGoalTrackingCode($trackingProvider, $trackingGoal);
+				}
+			}
+
+			return str_replace('<!-- com.mrk.wcf.tracking.goal.codePlaceholder -->', $goalCode, $trackingCode);
+		}
+		
+		return $trackingCode;
+	}
+
+	/**
+	 * Returns the goal tracking code
+	 *
+	 * @param	\wcf\data\tracking\provider\TrackingProvider	$trackingProvider
+	 * @param	\wcf\data\tracking\goal\TrackingGoal		$trackingGoal
+	 * @return	string
+	 */
+	abstract protected function getGoalTrackingCode(TrackingProvider $trackingProvider, TrackingGoal $trackingGoal);
 	
 	/**
 	 * @see	\wcf\system\tracking\provider\ITrackingProvider::getTrackingCode()
@@ -43,16 +72,16 @@ class AbstractTrackingProvider implements ITrackingProvider {
 	}
 	
 	/**
-	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresURL()
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresID()
 	 */
-	public function requiresURL() {
+	public function requiresID() {
 		return true;
 	}
 	
 	/**
-	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresID()
+	 * @see	\wcf\system\tracking\provider\ITrackingProvider::requiresURL()
 	 */
-	public function requiresID() {
+	public function requiresURL() {
 		return true;
 	}
 	
