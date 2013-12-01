@@ -36,7 +36,7 @@ abstract class AbstractTrackingProvider implements ITrackingProvider {
 		
 		return $trackingCode;
 	}
-
+	
 	/**
 	 * Returns the goal tracking code
 	 *

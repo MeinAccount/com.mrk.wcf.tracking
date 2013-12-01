@@ -2,6 +2,7 @@
 namespace wcf\data\tracking\goal;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
+use wcf\system\cache\builder\TrackingGoalCacheBuilder;
 
 /**
  * Provides functions to edit tracking goals.
@@ -21,6 +22,6 @@ class TrackingGoalEditor extends DatabaseObjectEditor implements IEditableCached
 	 * @see	\wcf\data\IEditableCachedObject::resetCache()
 	 */
 	public static function resetCache() {
-		// @todo implement
+		TrackingGoalCacheBuilder::getInstance()->reset();
 	}
 }
