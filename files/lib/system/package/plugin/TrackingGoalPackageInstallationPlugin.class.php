@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\package\plugin;
+use wcf\system\cache\builder\TrackingGoalCacheBuilder;
 use wcf\system\WCF;
 
 /**
@@ -15,22 +16,6 @@ class TrackingGoalPackageInstallationPlugin extends AbstractXMLPackageInstallati
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::$className
 	 */
 	public $className = 'wcf\data\tracking\goal\TrackingGoalEditor';
-
-	/**
-	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::getElement()
-	 */
-	protected function getElement(\DOMXpath $xpath, array &$elements, \DOMElement $element) {
-		if ($element->tagName == 'description') {
-			if (!isset($elements['description'])) {
-				$elements['description'] = array();
-			}
-
-			$elements['description'][$element->getAttribute('language')] = $element->nodeValue;
-		}
-		else {
-			parent::getElement($xpath, $elements, $element);
-		}
-	}
 	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
@@ -42,7 +27,7 @@ class TrackingGoalPackageInstallationPlugin extends AbstractXMLPackageInstallati
 		$statement = WCF::getDB()->prepareStatement($sql);
 		foreach ($items as $item) {
 			$statement->execute(array(
-				$item['attributes']['goal'],
+				$item['attributes']['name'],
 				$this->installation->getPackageID()
 			));
 		}
@@ -53,8 +38,7 @@ class TrackingGoalPackageInstallationPlugin extends AbstractXMLPackageInstallati
 	 */
 	protected function prepareImport(array $data) {
 		return array(
-			'goalName' => $data['elements']['goal'],
-			'description' => (isset($data['elements']['description'])) ? $data['elements']['description'] : ''
+			'goalName' => $data['elements']['name']
 		);
 	}
 	
@@ -64,12 +48,23 @@ class TrackingGoalPackageInstallationPlugin extends AbstractXMLPackageInstallati
 	protected function findExistingItem(array $data) {
 		$sql = "SELECT	*
 			FROM	wcf".WCF_N."_".$this->tableName."
-			WHERE	goalName = ?";
-		$parameters = array($data['goalName']);
+			WHERE	goalName = ?
+				AND packageID = ?";
+		$parameters = array(
+			$data['goalName'],
+			$this->installation->getPackageID()
+		);
 		
 		return array(
 			'sql' => $sql,
 			'parameters' => $parameters
 		);
+	}
+	
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::cleanup()
+	 */
+	protected function cleanup() {
+		TrackingGoalCacheBuilder::getInstance()->reset();
 	}
 }

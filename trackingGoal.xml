@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<import>
+		<!-- com.woltlab.wcf -->
+		<trackinggoal>
+			<goalname><![CDATA[com.woltlab.wcf.login]]></goalname>
+		</trackinggoal>
+		<trackinggoal>
+			<goalname><![CDATA[com.woltlab.wcf.register]]></goalname>
+		</trackinggoal>
+	</import>
+</data>
