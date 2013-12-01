@@ -17,6 +17,8 @@ class TrackingGoalPackageInstallationPlugin extends AbstractXMLPackageInstallati
 	 */
 	public $className = 'wcf\data\tracking\goal\TrackingGoalEditor';
 	
+	public $tagName = 'goal';
+	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
