@@ -37,7 +37,6 @@
 	</nav>
 </div>
 
-
 {if $objects|count}
 	<div id="trackingProviderTableContainer" class="tabularBox tabularBoxTitle marginTop">
 		<header>
