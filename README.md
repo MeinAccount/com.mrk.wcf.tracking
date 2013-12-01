@@ -9,7 +9,7 @@ Functions
 * Management of tracking providers
 * Automatic compression of tracking code
 * Page for opt-out of tracking
-* @todo Goal / Conversions tracking API
+* Goal / Conversions tracking API
 
 Supported tracking providers
 ----------------------------
