@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.github.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com https://github.com/MeinAccount/com.mrk.wcf.tracking/raw/master/XSD/trackingGoal.xsd">
+	<import>
+		<!-- com.woltlab.wcf -->
+		<goal>
+			<name>com.woltlab.wcf.login</name>
+			<description><![CDATA[WCF Login]]></description>
+			<description language="de"><![CDATA[WCF Anmeldung]]></description>
+		</goal>
+		<goal>
+			<name>com.woltlab.wcf.register</name>
+			<description><![CDATA[WCF Register]]></description>
+			<description language="de"><![CDATA[WCF Registrierung]]></description>
+		</goal>
+	</import>
+</data>

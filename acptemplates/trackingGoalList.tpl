@@ -90,7 +90,7 @@
 							{if $trackingGoal->trackingID}
 								<span class="icon icon16 icon-check{if $trackingGoal->isDisabled}-empty{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$trackingGoal->isDisabled}disable{else}enable{/if}{/lang}" data-object-id="{@$trackingGoal->trackingGoalID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
 							{else}
-								<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" class="icon icon16 icon-check-empty jsTooltip pointer" title="{lang}wcf.global.button.disable{/lang}"></a>
+								<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" class="icon icon16 icon-check-empty jsTooltip pointer" title="{lang}wcf.global.button.enable{/lang}"></a>
 							{/if}
 							<a href="{link controller='TrackingGoalEdit' object=$trackingGoal}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
 							<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$trackingGoal->trackingGoalID}" data-confirm-message="{lang}wcf.acp.tracking.goal.delete.sure{/lang}"></span>
