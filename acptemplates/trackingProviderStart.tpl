@@ -1,12 +1,10 @@
 {include file='header' pageTitle='wcf.acp.tracking.provider.add'}
 
-<script data-relocate="true" src="{@$__wcf->getPath('wcf')}js/WCF.Tracking{if !ENABLE_DEBUG_MODE}.min{/if}.js?v={@$__wcfVersion}"></script>
+<script data-relocate="true" src="{@$__wcf->getPath('wcf')}js/WCF.Tracking{if !ENABLE_DEBUG_MODE}.min{/if}.js?v={@$__wcfVersion}" xmlns="http://www.w3.org/1999/html"></script>
 <script data-relocate="true">
 	//<![CDATA[
 	$(function() {
-		WCF.TabMenu.init();
 		new WCF.Tracking.ProviderStart();
-		
 		WCF.Language.addObject({
 			'wcf.acp.tracking.provider.className.error.invalid': '{lang}wcf.acp.tracking.provider.className.error.invalid{/lang}',
 			'wcf.acp.tracking.provider.className.error.notFound': '{lang}wcf.acp.tracking.provider.className.error.notFound{/lang}'
@@ -31,17 +29,10 @@
 	</nav>
 </div>
 
-<div class="tabMenuContainer" data-active="objectTypes" data-store="activeTabMenuItem">
-	<nav class="tabMenu">
-		<ul>
-			<li><a href="{@$__wcf->getAnchor('preset')}">{lang}wcf.acp.tracking.provider.start.preset{/lang}</a></li>
-			<li><a href="{@$__wcf->getAnchor('custom')}">{lang}wcf.acp.tracking.provider.start.custom{/lang}</a></li>
-		</ul>
-	</nav>
-
-	<div id="preset" class="container containerPadding tabMenuContent">
+<form method="get" action="{link controller='TrackingProviderAdd'}{/link}" id="classNameForm" class="marginTop">
+	<div class="container containerPadding marginTop">
 		<fieldset>
-			<legend>{lang}wcf.acp.tracking.provider.start.preset{/lang}</legend>
+			<legend>{lang}wcf.acp.tracking.provider{/lang}</legend>
 			
 			{foreach from=$objectTypes item=objectType}
 				<dl>
@@ -50,32 +41,28 @@
 				</dl>
 			{/foreach}
 		</fieldset>
+		
+		<fieldset>
+			<legend>{lang}wcf.acp.tracking.provider.start.custom{/lang}</legend>
+			
+			<dl>
+				<dt><label for="className">{lang}wcf.acp.tracking.provider.className{/lang}</label></dt>
+				<dd>
+					<input type="text" id="className" name="className" value="wcf\system\tracking\provider\AbcTrackingProvider" required="required" pattern="^\\?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\\)*[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$" class="long" />
+					<small class="innerError invisible"></small>
+				</dd>
+			</dl>
+			
+			{event name='sourceFields'}
+		</fieldset>
+		
+		{event name='fieldsets'}
+		
+		<div class="formSubmit">
+			<input type="submit" name="submitButton" value="{lang}wcf.global.button.next{/lang}" accesskey="s" />
+			{@SID_INPUT_TAG}{@SECURITY_TOKEN_INPUT_TAG}
+		</div>
 	</div>
-
-	<div id="custom" class="container containerPadding tabMenuContent">
-		<form method="get" action="{link controller='TrackingProviderAdd'}{/link}" id="classNameForm">
-			<fieldset>
-				<legend>{lang}wcf.acp.tracking.provider.start.custom{/lang}</legend>
-
-				<dl>
-					<dt><label for="className">{lang}wcf.acp.tracking.provider.className{/lang}</label></dt>
-					<dd>
-						<input type="text" id="className" name="className" value="wcf\system\tracking\provider\AbcTrackingProvider" required="required" pattern="^\\?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\\)*[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$" class="long" />
-						<small class="innerError invisible"></small>
-					</dd>
-				</dl>
-
-				{event name='sourceFields'}
-			</fieldset>
-
-			{event name='fieldsets'}
-
-			<div class="formSubmit">
-				<input type="submit" name="submitButton" value="{lang}wcf.global.button.next{/lang}" accesskey="s" />
-				{@SID_INPUT_TAG}{@SECURITY_TOKEN_INPUT_TAG}
-			</div>
-		</form>
-	</div>
-</div>
+</form>
 
 {include file='footer'}
