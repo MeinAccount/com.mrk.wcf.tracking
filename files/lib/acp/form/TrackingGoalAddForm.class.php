@@ -1,5 +1,6 @@
 <?php
 namespace wcf\acp\form;
+use wcf\data\package\PackageCache;
 use wcf\data\tracking\goal\TrackingGoal;
 use wcf\data\tracking\goal\TrackingGoalAction;
 use wcf\data\tracking\goal\TrackingGoalEditor;
@@ -120,7 +121,7 @@ class TrackingGoalAddForm extends AbstractForm {
 		$data = array(
 			'goalName' => $this->goalName,
 			'description' => $this->description,
-			'packageID' => 1,
+			'packageID' => PackageCache::getInstance()->getPackageID('com.mrk.wcf.tracking'),
 			'isDisabled' => 0,
 			'trackingID' => $this->trackingID
 		);
