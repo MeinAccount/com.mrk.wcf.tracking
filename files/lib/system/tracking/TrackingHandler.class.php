@@ -55,7 +55,7 @@ class TrackingHandler extends SingletonFactory {
 	 */
 	public function getOptOutCode() {
 		if ($this->shouldTrackUser() && MODULE_TRACKING_OPT_OUT) {
-			return TrackingProviderCacheBuilder::getInstance()->getData(array(), 'optOut');
+			return TrackingCodeCacheBuilder::getInstance()->getData(array(), 'optOut');
 		}
 	}
 	
@@ -90,7 +90,7 @@ class TrackingHandler extends SingletonFactory {
 	 */
 	public function trackGoal($goalName, $revenue = null) {
 		$trackingGoal = TrackingGoalCacheBuilder::getInstance()->getData(array(), $goalName);
-		if ($trackingGoal) {
+		if ($trackingGoal !== null && !$trackingGoal->isDisabled) {
 			$trackingGoal->setRevenue($revenue);
 			$this->fulfilledGoals[] = $trackingGoal;
 		}

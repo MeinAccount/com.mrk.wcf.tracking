@@ -46,7 +46,6 @@ class TrackingGoalAddForm extends AbstractForm {
 	 * @var	integer
 	 */
 	public $trackingID = null;
-
 	
 	/**
 	 * @see	\wcf\page\IPage::readParameters()

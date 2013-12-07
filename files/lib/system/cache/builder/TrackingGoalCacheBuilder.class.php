@@ -3,7 +3,7 @@ namespace wcf\system\cache\builder;
 use wcf\data\tracking\goal\TrackingGoalList;
 
 /**
- * Caches all enabled tracking goals
+ * Caches all tracking goals
  *
  * @author           Magnus Kühn
  * @copyright        2013 Magnus Kühn
@@ -15,7 +15,6 @@ class TrackingGoalCacheBuilder extends AbstractCacheBuilder {
 	 */
 	protected function rebuild(array $parameters) {
 		$trackingGoalList = new TrackingGoalList();
-		$trackingGoalList->getConditionBuilder()->add('isDisabled = ?', array(0));
 		$trackingGoalList->readObjects();
 		
 		// use name as index

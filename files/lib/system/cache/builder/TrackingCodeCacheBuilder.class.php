@@ -13,16 +13,18 @@ class TrackingCodeCacheBuilder extends AbstractCacheBuilder {
 	 * @see	\wcf\system\cache\builder\AbstractCacheBuilder::rebuild()
 	 */
 	protected function rebuild(array $parameters) {
-		$code = array('tracking' => array(), 'optOut' => array());
+		$trackingCodes = array();
+		$optOut = '';
 		foreach (TrackingProviderCacheBuilder::getInstance()->getData() as $trackingProvider) {
 			if (!$trackingProvider->isDisabled) {
 				$provider = $trackingProvider->getProvider();
-				$code['tracking'][$trackingProvider->trackingProviderID] = $this->minifyCode($provider->getTrackingCode($trackingProvider));
-				$code['optOut'][$trackingProvider->trackingProviderID] = $this->minifyCode($provider->getOptOutCode($trackingProvider));
+				$trackingCodes[$trackingProvider->trackingProviderID] = $this->minifyCode($provider->getTrackingCode($trackingProvider));
+				$optOut .= $provider->getOptOutCode($trackingProvider);
 			}
 		}
 		
-		return $code;
+		// minify
+		return array('tracking'=> $trackingCodes, 'optOut' => $this->minifyCode($optOut));
 	}
 	
 	/**
